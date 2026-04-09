@@ -3,38 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adrian Pasahol | Resume</title>
+  <title>Adrian Pasahol | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e2e8f0;
+      line-height: 1.6;
     }
     header {
-      background: #1f2937;
-      color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 4rem 1rem;
+      animation: fadeIn 1.2s ease-in-out;
     }
-    section {
-      padding: 2rem;
-      max-width: 900px;
+    header h1 { font-size: 2.5rem; font-weight: 700; }
+    header p { opacity: 0.8; margin-top: 0.5rem; }
+
+    .container {
+      max-width: 1000px;
       margin: auto;
-      background: white;
-      margin-top: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
     }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 0.8s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+
     h2 {
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #38bdf8;
+      padding-left: 10px;
     }
-    ul {
-      padding-left: 1.2rem;
-    }
+
+    h3 { margin-top: 1rem; color: #38bdf8; }
+
+    ul { margin-top: 0.5rem; padding-left: 1.2rem; }
+
     .contact {
       margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      background: #38bdf8;
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #0ea5e9;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.6;
+      font-size: 0.8rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -42,57 +96,65 @@
 
 <header>
   <h1>Adrian Adam C. Pasahol</h1>
-  <p>Data Processing Associate | AI Training | QA Specialist</p>
+  <p>Data Processing • AI Training • Quality Assurance</p>
   <div class="contact">
-    <p>Email: adrianadam.pasahol@gmail.com</p>
-    <p>Phone: (+63) 9089351276</p>
-    <p>Location: Noveleta, Cavite, Philippines</p>
+    <p>📧 adrianadam.pasahol@gmail.com</p>
+    <p>📱 (+63) 9089351276</p>
+    <p>📍 Noveleta, Cavite, Philippines</p>
   </div>
+  <a href="#experience" class="btn">View Experience</a>
 </header>
 
-<section>
-  <h2>Professional Experience</h2>
+<div class="container">
 
-  <h3>Data Processing Associate – Appen (2025–2026)</h3>
-  <ul>
-    <li>Conducted quality assurance reviews to ensure accuracy and consistency.</li>
-    <li>Audited, classified, and labeled large datasets.</li>
-    <li>Supported AI training through annotation and validation.</li>
-  </ul>
+  <div class="card" id="experience">
+    <h2>Experience</h2>
 
-  <h3>Internet Safety Evaluator – TELUS International (2022–2025)</h3>
-  <ul>
-    <li>Evaluated video search results for quality and relevance.</li>
-    <li>Provided detailed feedback for content improvement.</li>
-    <li>Researched internet safety and misinformation trends.</li>
-  </ul>
+    <h3>Appen — Data Processing Associate (2025–2026)</h3>
+    <ul>
+      <li>Performed QA reviews ensuring high data accuracy.</li>
+      <li>Annotated and classified large datasets.</li>
+      <li>Supported AI model training and validation.</li>
+    </ul>
 
-  <h3>Bookkeeper – BCOB Multipurpose Cooperative (2019–2021)</h3>
-  <ul>
-    <li>Managed invoices, payroll, and financial records.</li>
-    <li>Tracked expenses and income.</li>
-    <li>Maintained organized accounting documentation.</li>
-  </ul>
-</section>
+    <h3>TELUS International — Internet Safety Evaluator (2022–2025)</h3>
+    <ul>
+      <li>Evaluated search/video content quality.</li>
+      <li>Provided detailed feedback for improvement.</li>
+      <li>Researched misinformation and safety trends.</li>
+    </ul>
 
-<section>
-  <h2>Education</h2>
-  <p><strong>Bachelor of Science in Accounting Technology</strong> – STI College Rosario (2015–2019)</p>
-  <p><strong>Diploma in Computer and Electronics Technician</strong> – STI College Rosario (2012–2014)</p>
-</section>
+    <h3>BCOB Cooperative — Bookkeeper (2019–2021)</h3>
+    <ul>
+      <li>Managed payroll, invoices, and financial logs.</li>
+      <li>Tracked expenses and maintained records.</li>
+    </ul>
+  </div>
 
-<section>
-  <h2>Certificates</h2>
-  <ul>
-    <li>Civil Service Eligibility – Professional</li>
-    <li>Bookkeeper (NIAT) – CAT Level 1</li>
-  </ul>
-</section>
+  <div class="card">
+    <h2>Education</h2>
+    <p><strong>BS Accounting Technology</strong> — STI College Rosario</p>
+    <p><strong>Diploma in Computer & Electronics</strong> — STI College Rosario</p>
+  </div>
 
-<section>
-  <h2>Awards</h2>
-  <p>Outstanding Achievement in Culture and Arts – Office of the President of the Philippines (2009)</p>
-</section>
+  <div class="card">
+    <h2>Certificates</h2>
+    <ul>
+      <li>Civil Service Eligibility (Professional)</li>
+      <li>Bookkeeper (NIAT) — CAT Level 1</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Awards</h2>
+    <p>Outstanding Achievement in Culture and Arts (2009)</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Adrian Pasahol — Built with GitHub Pages
+</footer>
 
 </body>
 </html>
