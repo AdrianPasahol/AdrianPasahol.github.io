@@ -6,16 +6,15 @@
   <title>Adrian Pasahol | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0f172a; /* darker background */
+      background: #0f172a;
       color: #e2e8f0;
       display: flex;
     }
 
-    /* Sidebar */
     .sidebar {
       width: 280px;
       height: 100vh;
@@ -46,11 +45,11 @@
       transition: 0.3s;
     }
 
+    .sidebar a.active,
     .sidebar a:hover {
       color: #38bdf8;
     }
 
-    /* Main */
     .main {
       flex: 1;
       padding: 3rem;
@@ -90,12 +89,19 @@
       transform: translateX(6px);
     }
 
-    /* Education hover effect */
-    #education p:hover {
+    .skills span {
+      display: inline-block;
       background: #1e293b;
-      padding: 0.5rem;
-      border-radius: 6px;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      margin: 0.3rem;
+      font-size: 0.8rem;
       transition: 0.3s;
+    }
+
+    .skills span:hover {
+      background: #38bdf8;
+      color: #020617;
     }
 
     ul { padding-left: 1.2rem; }
@@ -121,14 +127,16 @@
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
   <a href="#certifications">Certifications</a>
+  <a href="#awards">Awards</a>
 </div>
 
 <div class="main">
 
   <section id="about">
     <h2>About</h2>
-    <p>Data Processing Associate with experience in AI training, quality assurance, and data annotation. Skilled in handling large datasets, ensuring accuracy, and supporting machine learning workflows.</p>
+    <p>Data Processing Associate with experience in AI training, quality assurance, and data annotation.</p>
   </section>
 
   <section id="experience">
@@ -137,27 +145,24 @@
     <div class="job">
       <h3>Appen — Data Processing Associate</h3>
       <ul>
-        <li>Performed QA reviews ensuring high data accuracy.</li>
-        <li>Annotated datasets for AI training.</li>
-        <li>Improved data workflows with global teams.</li>
+        <li>QA reviews and data validation</li>
+        <li>AI dataset annotation</li>
       </ul>
     </div>
 
     <div class="job">
       <h3>TELUS International — Internet Safety Evaluator</h3>
       <ul>
-        <li>Evaluated online content quality and safety.</li>
-        <li>Provided structured feedback.</li>
-        <li>Researched misinformation trends.</li>
+        <li>Content evaluation and feedback</li>
+        <li>Research on misinformation</li>
       </ul>
     </div>
 
     <div class="job">
       <h3>BCOB Cooperative — Bookkeeper</h3>
       <ul>
-        <li>Managed payroll and financial records.</li>
-        <li>Tracked expenses and reports.</li>
-        <li>Maintained compliance.</li>
+        <li>Payroll and records management</li>
+        <li>Financial reporting</li>
       </ul>
     </div>
 
@@ -169,12 +174,28 @@
     <p>Diploma in Computer & Electronics — STI College Rosario</p>
   </section>
 
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Data Annotation</span>
+      <span>Quality Assurance</span>
+      <span>AI Training</span>
+      <span>Data Processing</span>
+      <span>Bookkeeping</span>
+    </div>
+  </section>
+
   <section id="certifications">
     <h2>Certifications</h2>
     <ul>
       <li>Civil Service Eligibility (Professional)</li>
       <li>Bookkeeper (NIAT) — CAT Level 1</li>
     </ul>
+  </section>
+
+  <section id="awards">
+    <h2>Awards</h2>
+    <p>Outstanding Achievement in Culture and Arts (2009)</p>
   </section>
 
   <footer>
@@ -185,14 +206,22 @@
 
 <script>
   const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.sidebar a');
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === entry.target.id) {
+            link.classList.add('active');
+          }
+        });
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.3 });
 
   sections.forEach(section => observer.observe(section));
 </script>
