@@ -14,7 +14,29 @@
       color: #e2e8f0;
       display: flex;
     }
+    
+@media print {
+  body {
+    display: block;
+    background: white;
+    color: black;
+  }
 
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  section {
+    opacity: 1 !important;
+    transform: none !important;
+    page-break-inside: avoid;
+  }
+}
     .sidebar {
       width: 330px;
       height: 100vh;
