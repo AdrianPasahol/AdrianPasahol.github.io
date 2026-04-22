@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adrian Pasahol | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
@@ -14,29 +15,7 @@
       color: #e2e8f0;
       display: flex;
     }
-    
-@media print {
-  body {
-    display: block;
-    background: white;
-    color: black;
-  }
 
-  .sidebar {
-    display: none;
-  }
-
-  .main {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  section {
-    opacity: 1 !important;
-    transform: none !important;
-    page-break-inside: avoid;
-  }
-}
     .sidebar {
       width: 330px;
       height: 100vh;
@@ -55,8 +34,25 @@
 
     .contact {
       font-size: 0.85rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: #94a3b8;
+    }
+
+    .pdf-btn {
+      margin-bottom: 2rem;
+      padding: 0.6rem;
+      width: 100%;
+      background: #38bdf8;
+      border: none;
+      color: #020617;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .pdf-btn:hover {
+      background: #0ea5e9;
     }
 
     .sidebar a {
@@ -105,9 +101,7 @@
       transition: 0.3s;
     }
 
-    .job ul {
-      margin-top: 0.8rem;
-    }
+    .job ul { margin-top: 0.8rem; }
 
     .job li {
       margin-bottom: 0.7rem;
@@ -142,8 +136,53 @@
       font-size: 0.8rem;
       color: #64748b;
     }
+
+    /* ✅ FIXED PRINT STYLES */
+    @media print {
+
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      body {
+        display: block !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+
+      .sidebar {
+        display: none !important;
+      }
+
+      .main {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px !important;
+        margin: 0 !important;
+      }
+
+      section {
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      h2 {
+        color: #000 !important;
+      }
+
+      .job {
+        border-left: 3px solid #000 !important;
+        background: none !important;
+        transform: none !important;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
 <div class="sidebar">
@@ -154,6 +193,8 @@
     <p>📱 (+63) 9089351276</p>
     <p>📍 Noveleta, Cavite</p>
   </div>
+
+  <button onclick="downloadPDF()" class="pdf-btn">Download PDF</button>
 
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
@@ -176,30 +217,17 @@
     <div class="job">
       <h3>Appen — Data Processing Associate</h3>
       <ul>
-        <li>Conducted quality assurance reviews to identify errors and inconsistencies, ensuring alignment with internal standards before submission.</li>
-        <li>Audited, classified, and manually labeled large datasets with high accuracy for AI training purposes.</li>
-        <li>Supported machine learning workflows by preparing and validating structured data.</li>
-        <li>Maintained productivity and accuracy while working on repetitive and detail-oriented tasks.</li>
+        <li>Conducted quality assurance reviews to identify errors and inconsistencies.</li>
+        <li>Audited and labeled datasets for AI training.</li>
+        <li>Prepared structured data for machine learning workflows.</li>
       </ul>
     </div>
 
     <div class="job">
       <h3>TELUS International — Internet Safety Evaluator</h3>
       <ul>
-        <li>Evaluated online content for relevance, safety, and compliance with platform guidelines.</li>
-        <li>Provided structured feedback to improve content quality and user experience.</li>
-        <li>Analyzed search results and user behavior trends to identify misinformation and low-quality content.</li>
-        <li>Applied critical thinking and research skills to ensure accurate assessments.</li>
-      </ul>
-    </div>
-
-    <div class="job">
-      <h3>BCOB Cooperative — Bookkeeper</h3>
-      <ul>
-        <li>Managed payroll processing, invoices, and daily financial transactions.</li>
-        <li>Maintained accurate financial records and tracked organizational expenses.</li>
-        <li>Prepared financial reports and assisted in budget monitoring.</li>
-        <li>Ensured compliance with accounting standards and internal controls.</li>
+        <li>Evaluated online content for safety and relevance.</li>
+        <li>Provided structured feedback to improve quality.</li>
       </ul>
     </div>
 
@@ -208,7 +236,6 @@
   <section id="education">
     <h2>Education</h2>
     <p>BS Accounting Technology — STI College Rosario</p>
-    <p>Diploma in Computer & Electronics — STI College Rosario</p>
   </section>
 
   <section id="skills">
@@ -217,22 +244,7 @@
       <span>Data Annotation</span>
       <span>Quality Assurance</span>
       <span>AI Training</span>
-      <span>Data Processing</span>
-      <span>Bookkeeping</span>
     </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Civil Service Eligibility (Professional)</li>
-      <li>Bookkeeper (NIAT) — CAT Level 1</li>
-    </ul>
-  </section>
-
-  <section id="awards">
-    <h2>Awards</h2>
-    <p>Outstanding Achievement in Culture and Arts (2009)</p>
   </section>
 
   <footer>
@@ -261,6 +273,13 @@
   }, { threshold: 0.3 });
 
   sections.forEach(section => observer.observe(section));
+
+  function downloadPDF() {
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('show');
+    });
+    window.print();
+  }
 </script>
 
 </body>
