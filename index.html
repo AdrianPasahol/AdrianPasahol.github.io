@@ -426,6 +426,62 @@
     text-align: center;
   }
 
+  /* ── ANIMATED BACKGROUND ── */
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+  }
+  .hero-left, .hero-right { position: relative; z-index: 1; }
+
+  /* ── ACTIVE NAV ── */
+  .nav-links a {
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+    border-radius: 2px;
+  }
+  .nav-links a.active { color: var(--accent); }
+  .nav-links a.active::after { transform: scaleX(1); }
+
+  /* ── RESUME BUTTON ── */
+  .btn-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(7px, 0.5vw, 10px);
+    border: 1.5px solid rgba(94,234,212,0.35);
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: clamp(10px, 0.8vw, 16px) clamp(22px, 1.8vw, 36px);
+    border-radius: 4px;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+  .btn-resume:hover {
+    background: rgba(94,234,212,0.2);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(94,234,212,0.15);
+  }
+  .btn-resume svg {
+    width: clamp(13px, 0.9vw, 17px);
+    height: clamp(13px, 0.9vw, 17px);
+    flex-shrink: 0;
+  }
+
   /* ── ANIMATIONS ── */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
   .reveal.visible { opacity: 1; transform: none; }
@@ -462,7 +518,8 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding:0;">
+<section class="hero" style="padding:0; position:relative; overflow:hidden;">
+  <canvas id="hero-canvas"></canvas>
   <div class="hero-left">
     <div class="hero-eyebrow">Professional Portfolio</div>
     <h1 class="hero-name">Adrian<br><em>Adam</em> C.<br>Pasahol</h1>
@@ -473,6 +530,12 @@
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">View Experience</a>
       <a href="#contact" class="btn-outline">Get in Touch</a>
+      <a href="ADRIAN_ADAM_C__PASAHOL_FlowCV_Resume_2026-03-27.pdf" download class="btn-resume">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        Download CV
+      </a>
     </div>
   </div>
   <div class="hero-right">
@@ -716,12 +779,97 @@
 <div class="footer-copy">© 2026 Adrian Adam C. Pasahol · Built with care</div>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  // ── SCROLL REVEAL ──
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), 60);
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── ACTIVE NAV HIGHLIGHT ──
+  const sections = document.querySelectorAll('section[id], footer[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navHeight = document.querySelector('nav').offsetHeight;
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: `-${navHeight}px 0px -55% 0px`, threshold: 0 });
+
+  sections.forEach(s => sectionObserver.observe(s));
+
+  // ── CANVAS PARTICLE GRID ──
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  const ACCENT = '94,234,212';
+  let W, H, dots, animId;
+
+  function resize() {
+    const hero = canvas.parentElement;
+    W = canvas.width  = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+    initDots();
+  }
+
+  function initDots() {
+    const count = Math.floor((W * H) / 14000);
+    dots = Array.from({ length: count }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 1.5 + 0.5,
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // connect nearby dots
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const dx = dots[i].x - dots[j].x;
+        const dy = dots[i].y - dots[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const maxDist = 120;
+        if (dist < maxDist) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${ACCENT},${(1 - dist / maxDist) * 0.18})`;
+          ctx.lineWidth = 0.6;
+          ctx.moveTo(dots[i].x, dots[i].y);
+          ctx.lineTo(dots[j].x, dots[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // draw dots
+    dots.forEach(d => {
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${ACCENT},0.5)`;
+      ctx.fill();
+
+      // move
+      d.x += d.vx;
+      d.y += d.vy;
+      if (d.x < 0 || d.x > W) d.vx *= -1;
+      if (d.y < 0 || d.y > H) d.vy *= -1;
+    });
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { cancelAnimationFrame(animId); resize(); draw(); });
+  resize();
+  draw();
 </script>
 </body>
 </html>
