@@ -68,12 +68,28 @@ nav {
   font-family: var(--mono);
   font-size: var(--text-xs);
   font-weight: 500;
-  color: var(--accent);
+  color: var(--ink-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
 }
+.nav-logo:hover { color: var(--accent); }
+.nav-logo::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+.nav-logo.active { color: var(--accent); }
+.nav-logo.active::after { transform: scaleX(1); }
 .nav-links { display: flex; gap: clamp(14px, 2vw, 40px); list-style: none; flex-wrap: wrap; }
 .nav-links a {
   font-size: var(--text-xs);

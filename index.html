@@ -571,10 +571,17 @@
   // ── ACTIVE NAV HIGHLIGHT ──
   const sections = document.querySelectorAll('section[id], footer[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
+  const navLogo = document.querySelector('.nav-logo');
   const navHeight = document.querySelector('nav').offsetHeight;
 
   let pageLoaded = false;
   setTimeout(() => { pageLoaded = true; }, 400);
+
+  function updateLogoActive() {
+    navLogo.classList.toggle('active', window.scrollY < 80);
+  }
+  window.addEventListener('scroll', updateLogoActive, { passive: true });
+  updateLogoActive();
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
