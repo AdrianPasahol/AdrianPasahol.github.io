@@ -200,11 +200,11 @@
 </head>
 <body>
 <script>
-  // Strip any hash on page load/refresh so the page always starts at the top
-  if (window.location.hash) {
-    history.replaceState(null, '', window.location.pathname);
-    window.scrollTo(0, 0);
-  }
+  // Always start at the top on load/refresh — browsers restore scroll position otherwise
+  history.replaceState(null, '', window.location.pathname);
+  window.scrollTo(0, 0);
+  // Also catch the browser's own scroll restoration after load
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 </script>
 
 <!-- NAV -->
