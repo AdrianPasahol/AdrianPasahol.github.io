@@ -578,25 +578,51 @@
   setTimeout(() => { pageLoaded = true; }, 400);
 
   function updateLogoActive() {
-    navLogo.classList.toggle('active', window.scrollY < 80);
+    const atTop = window.scrollY < 80;
+    navLogo.classList.toggle('active', atTop);
+    // Clear all section link highlights when back at the top
+    if (atTop) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (pageLoaded) history.replaceState(null, '', window.location.pathname);
+    }
   }
-  window.addEventListener('scroll', updateLogoActive, { passive: true });
+
+  // When scrolled to the bottom, force Contact active
+  function checkBottom() {
+    const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 4;
+    if (atBottom) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#contact');
+      });
+    }
+  }
+
+  window.addEventListener('scroll', () => { updateLogoActive(); checkBottom(); }, { passive: true });
   updateLogoActive();
 
+  let lastScrollY = window.scrollY;
+
   const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-        });
-        // Only update URL hash after initial load to avoid #experience on first visit
-        if (pageLoaded) {
-          history.replaceState(null, '', '#' + id);
-        }
-      }
+    const scrollingUp = window.scrollY < lastScrollY;
+    lastScrollY = window.scrollY;
+
+    const intersecting = entries.filter(e => e.isIntersecting);
+    if (!intersecting.length) return;
+
+    // When scrolling up, pick the entry nearest the top of the viewport
+    // When scrolling down, pick the topmost intersecting entry
+    const chosen = scrollingUp
+      ? intersecting.reduce((a, b) => a.boundingClientRect.top > b.boundingClientRect.top ? a : b)
+      : intersecting.reduce((a, b) => a.boundingClientRect.top < b.boundingClientRect.top ? a : b);
+
+    const id = chosen.target.getAttribute('id');
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
     });
-  }, { rootMargin: `-${navHeight}px 0px -55% 0px`, threshold: 0 });
+    if (pageLoaded) {
+      history.replaceState(null, '', '#' + id);
+    }
+  }, { rootMargin: `-${navHeight}px 0px -30% 0px`, threshold: 0 });
 
   sections.forEach(s => sectionObserver.observe(s));
 
