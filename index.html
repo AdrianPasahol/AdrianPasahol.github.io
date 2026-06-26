@@ -353,6 +353,9 @@
   const navLinks = document.querySelectorAll('.nav-links a');
   const navHeight = document.querySelector('nav').offsetHeight;
 
+  let pageLoaded = false;
+  setTimeout(() => { pageLoaded = true; }, 400);
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -360,6 +363,10 @@
         navLinks.forEach(link => {
           link.classList.toggle('active', link.getAttribute('href') === '#' + id);
         });
+        // Only update URL hash after initial load to avoid #experience on first visit
+        if (pageLoaded) {
+          history.replaceState(null, '', '#' + id);
+        }
       }
     });
   }, { rootMargin: `-${navHeight}px 0px -55% 0px`, threshold: 0 });
