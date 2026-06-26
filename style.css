@@ -71,6 +71,8 @@ nav {
   color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
 }
 .nav-links { display: flex; gap: clamp(14px, 2vw, 40px); list-style: none; flex-wrap: wrap; }
 .nav-links a {
@@ -213,6 +215,13 @@ nav {
   width: clamp(13px, 0.9vw, 17px);
   height: clamp(13px, 0.9vw, 17px);
   flex-shrink: 0;
+}
+
+button.btn-resume {
+  border-style: solid;
+  background-color: var(--accent-dim);
+  cursor: pointer;
+  font-family: var(--sans);
 }
 
 /* ── HERO RIGHT ── */

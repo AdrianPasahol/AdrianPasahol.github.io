@@ -7,13 +7,210 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style media="print">
+  /* ── PRINT / PDF STYLES ── */
+  @page {
+    size: A4;
+    margin: 18mm 16mm 16mm 16mm;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide everything except the CV content */
+  nav,
+  .hero-right,
+  #hero-canvas,
+  .hero-ctas,
+  .back-to-top,
+  .section-rule,
+  .footer-contact,
+  .footer-copy,
+  #projects,
+  #skills .subsection { display: none !important; }
+
+  /* Hero: compact name block */
+  .hero {
+    display: block !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  .hero-left {
+    border: none !important;
+    padding: 0 0 12pt !important;
+    border-bottom: 1.5pt solid #5EEAD4 !important;
+    margin-bottom: 14pt !important;
+  }
+  .hero-left::before { display: none !important; }
+
+  .hero-eyebrow { display: none !important; }
+
+  .hero-name {
+    font-size: 26pt !important;
+    color: #111 !important;
+    margin-bottom: 3pt !important;
+    line-height: 1.1 !important;
+  }
+  .hero-name em { color: #0d9488 !important; }
+
+  .hero-title {
+    font-size: 10pt !important;
+    color: #444 !important;
+    margin-bottom: 6pt !important;
+  }
+
+  .hero-desc {
+    font-size: 9pt !important;
+    color: #333 !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Contact row under name */
+  .contact-strip {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 4pt 16pt !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: 8pt !important;
+  }
+  .contact-item {
+    font-size: 8.5pt !important;
+    color: #333 !important;
+    gap: 5pt !important;
+  }
+  .contact-icon { display: none !important; }
+
+  /* Sections */
+  section {
+    padding: 0 0 14pt !important;
+    background: none !important;
+    border: none !important;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    margin-bottom: 8pt !important;
+    gap: 8pt !important;
+  }
+  .section-tag {
+    font-size: 7pt !important;
+    color: #0d9488 !important;
+    background: none !important;
+    border: 1pt solid #0d9488 !important;
+    padding: 1pt 5pt !important;
+  }
+  .section-title {
+    font-size: 13pt !important;
+    color: #111 !important;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    grid-template-columns: 100px 1fr !important;
+    gap: 12pt !important;
+    padding-bottom: 10pt !important;
+    page-break-inside: avoid;
+  }
+  .timeline-dot { display: none !important; }
+  .timeline-item::before { display: none !important; }
+  .timeline-meta { text-align: right !important; }
+  .timeline-date { font-size: 8pt !important; color: #555 !important; }
+  .timeline-role { font-size: 10pt !important; color: #111 !important; }
+  .timeline-company { font-size: 9pt !important; color: #0d9488 !important; margin-bottom: 4pt !important; }
+  .timeline-bullets li { font-size: 8.5pt !important; color: #333 !important; line-height: 1.5 !important; padding-left: 10pt !important; }
+  .timeline-bullets li::before { color: #888 !important; }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6pt !important;
+  }
+  .skill-card {
+    padding: 8pt !important;
+    background: #f7f7f7 !important;
+    border: 0.5pt solid #ddd !important;
+    border-radius: 4pt !important;
+    page-break-inside: avoid;
+  }
+  .skill-icon { font-size: 12pt !important; margin-bottom: 3pt !important; }
+  .skill-name { font-size: 8.5pt !important; color: #111 !important; margin-bottom: 2pt !important; }
+  .skill-desc { font-size: 7.5pt !important; color: #555 !important; }
+
+  /* Education */
+  .edu-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8pt !important;
+  }
+  .edu-card {
+    padding: 8pt 10pt !important;
+    background: #f7f7f7 !important;
+    border: 0.5pt solid #ddd !important;
+    border-left: 2pt solid #0d9488 !important;
+    border-radius: 0 4pt 4pt 0 !important;
+    page-break-inside: avoid;
+  }
+  .edu-degree { font-size: 9pt !important; color: #111 !important; }
+  .edu-school { font-size: 8.5pt !important; color: #0d9488 !important; }
+  .edu-years { font-size: 8pt !important; color: #666 !important; }
+
+  /* Certs */
+  .cert-list { gap: 6pt !important; }
+  .cert-chip {
+    padding: 6pt 10pt !important;
+    background: #f7f7f7 !important;
+    border: 0.5pt solid #ddd !important;
+    border-radius: 4pt !important;
+    page-break-inside: avoid;
+  }
+  .cert-badge { display: none !important; }
+  .cert-name { font-size: 9pt !important; color: #111 !important; }
+  .cert-body { font-size: 8pt !important; color: #555 !important; }
+
+  /* Award */
+  .award-card {
+    padding: 10pt 14pt !important;
+    background: #f0fafa !important;
+    border: 0.5pt solid #0d9488 !important;
+    border-radius: 4pt !important;
+    gap: 10pt !important;
+  }
+  .award-card::before { display: none !important; }
+  .award-date { font-size: 8pt !important; color: #0d9488 !important; }
+  .award-title { font-size: 10pt !important; color: #111 !important; }
+  .award-body { font-size: 8.5pt !important; color: #444 !important; }
+
+  /* Reveal animations: make everything visible */
+  .reveal { opacity: 1 !important; transform: none !important; }
+</style>
 </head>
 <body>
+<script>
+  // Strip any hash on page load/refresh so the page always starts at the top
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+    window.scrollTo(0, 0);
+  }
+</script>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">AAC · Pasahol</div>
+    <a class="nav-logo" href="#" onclick="event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); history.replaceState(null, '', window.location.pathname);">AAC · Pasahol</a>
     <ul class="nav-links">
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -37,12 +234,12 @@
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">View Experience</a>
       <a href="#contact" class="btn-outline">Get in Touch</a>
-      <a href="ADRIAN_ADAM_C__PASAHOL_FlowCV_Resume_2026-03-27.pdf" download class="btn-resume">
+      <button onclick="downloadCV()" class="btn-resume">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
         </svg>
         Download CV
-      </a>
+      </button>
     </div>
   </div>
   <div class="hero-right">
@@ -347,6 +544,16 @@
 </button>
 
 <script>
+  // ── DOWNLOAD CV AS PDF ──
+  function downloadCV() {
+    // Set document title so the saved PDF filename is clean
+    const originalTitle = document.title;
+    document.title = 'Adrian_Adam_C_Pasahol_CV';
+    window.print();
+    // Restore title after print dialog closes
+    setTimeout(() => { document.title = originalTitle; }, 1000);
+  }
+
   // ── BACK TO TOP ──
   const backToTop = document.querySelector('.back-to-top');
   window.addEventListener('scroll', () => {
