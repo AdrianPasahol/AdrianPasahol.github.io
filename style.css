@@ -645,7 +645,13 @@ section:nth-child(even) { background: var(--bg-card); border-top: 1px solid var(
     letter-spacing: 0.04em;
     padding: 2px 0;
     display: inline-block;
+    color: var(--ink-muted);
   }
+  /* No active highlight or underline on nav links on mobile — plain separator row */
+  .nav-links a.active,
+  .nav-links a:hover { color: var(--ink-muted); }
+  .nav-links a::after,
+  .nav-links a.active::after { display: none; }
 
   /* ── Root overrides: fixed px values on mobile instead of vw-based clamps ── */
   :root {
