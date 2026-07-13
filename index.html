@@ -46,19 +46,33 @@
     border: none !important;
   }
   .hero-left {
+    display: block !important;
     border: none !important;
     padding: 0 0 12pt !important;
     border-bottom: 1pt solid #111 !important;
     margin-bottom: 14pt !important;
   }
   .hero-left::before { display: none !important; }
+  .hero-left::after { content: '' !important; display: table !important; clear: both !important; }
 
   .hero-eyebrow { display: none !important; }
+
+  .hero-identity {
+    display: block !important;
+    margin-bottom: 0 !important;
+  }
+  .hero-photo {
+    float: right !important;
+    width: 92px !important;
+    height: 92px !important;
+    border: 1pt solid #111 !important;
+    margin: 0 0 6pt 14pt !important;
+  }
 
   .hero-name {
     font-size: 22pt !important;
     color: #111 !important;
-    margin-bottom: 3pt !important;
+    margin: 0 0 2pt !important;
     line-height: 1.2 !important;
     white-space: normal !important;
   }
@@ -68,7 +82,7 @@
   .hero-title {
     font-size: 10pt !important;
     color: #444 !important;
-    margin-bottom: 6pt !important;
+    margin: 0 0 4pt !important;
   }
 
   .hero-desc {
@@ -252,7 +266,10 @@
   <canvas id="hero-canvas"></canvas>
   <div class="hero-left">
     <div class="hero-eyebrow">Professional Portfolio</div>
-    <h1 class="hero-name">Adrian <br><em> Adam</em> C. <br> Pasahol</h1>
+    <div class="hero-identity">
+      <img src="photo.jpg" alt="Adrian Adam C. Pasahol" class="hero-photo">
+      <h1 class="hero-name">Adrian <br><em> Adam</em> C. <br> Pasahol</h1>
+    </div>
     <p class="hero-title">Data Quality · AI Training · Financial Operations</p>
     <p class="hero-desc">
       Detail-oriented professional with 7+ years spanning data processing, internet safety evaluation, and financial bookkeeping. I bridge precision and analytical thinking to deliver quality across every domain I work in.

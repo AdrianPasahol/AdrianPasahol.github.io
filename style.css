@@ -143,6 +143,21 @@ nav {
   background: radial-gradient(ellipse at 30% 50%, rgba(94,234,212,0.04) 0%, transparent 65%);
   pointer-events: none;
 }
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+.hero-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  flex-shrink: 0;
+  display: block;
+}
 .hero-eyebrow {
   font-family: var(--mono);
   font-size: var(--text-xs);
