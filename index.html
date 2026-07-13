@@ -48,7 +48,7 @@
   .hero-left {
     border: none !important;
     padding: 0 0 12pt !important;
-    border-bottom: 1.5pt solid #5EEAD4 !important;
+    border-bottom: 1pt solid #111 !important;
     margin-bottom: 14pt !important;
   }
   .hero-left::before { display: none !important; }
@@ -56,12 +56,14 @@
   .hero-eyebrow { display: none !important; }
 
   .hero-name {
-    font-size: 26pt !important;
+    font-size: 22pt !important;
     color: #111 !important;
     margin-bottom: 3pt !important;
-    line-height: 1.1 !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
   }
-  .hero-name em { color: #0d9488 !important; }
+  .hero-name br { display: none !important; }
+  .hero-name em { color: #111 !important; font-style: normal !important; }
 
   .hero-title {
     font-size: 10pt !important;
@@ -109,9 +111,9 @@
   }
   .section-tag {
     font-size: 7pt !important;
-    color: #0d9488 !important;
+    color: #333 !important;
     background: none !important;
-    border: 1pt solid #0d9488 !important;
+    border: 1pt solid #333 !important;
     padding: 1pt 5pt !important;
   }
   .section-title {
@@ -131,7 +133,7 @@
   .timeline-meta { text-align: right !important; }
   .timeline-date { font-size: 8pt !important; color: #555 !important; }
   .timeline-role { font-size: 10pt !important; color: #111 !important; }
-  .timeline-company { font-size: 9pt !important; color: #0d9488 !important; margin-bottom: 4pt !important; }
+  .timeline-company { font-size: 9pt !important; color: #333 !important; margin-bottom: 4pt !important; }
   .timeline-bullets li { font-size: 8.5pt !important; color: #333 !important; line-height: 1.5 !important; padding-left: 10pt !important; }
   .timeline-bullets li::before { color: #888 !important; }
 
@@ -142,12 +144,12 @@
   }
   .skill-card {
     padding: 8pt !important;
-    background: #f7f7f7 !important;
-    border: 0.5pt solid #ddd !important;
-    border-radius: 4pt !important;
+    background: none !important;
+    border: 0.5pt solid #999 !important;
+    border-radius: 0 !important;
     page-break-inside: avoid;
   }
-  .skill-icon { font-size: 12pt !important; margin-bottom: 3pt !important; }
+  .skill-icon { display: none !important; }
   .skill-name { font-size: 8.5pt !important; color: #111 !important; margin-bottom: 2pt !important; }
   .skill-desc { font-size: 7.5pt !important; color: #555 !important; }
 
@@ -158,23 +160,23 @@
   }
   .edu-card {
     padding: 8pt 10pt !important;
-    background: #f7f7f7 !important;
-    border: 0.5pt solid #ddd !important;
-    border-left: 2pt solid #0d9488 !important;
-    border-radius: 0 4pt 4pt 0 !important;
+    background: none !important;
+    border: 0.5pt solid #999 !important;
+    border-left: 1.5pt solid #111 !important;
+    border-radius: 0 !important;
     page-break-inside: avoid;
   }
   .edu-degree { font-size: 9pt !important; color: #111 !important; }
-  .edu-school { font-size: 8.5pt !important; color: #0d9488 !important; }
+  .edu-school { font-size: 8.5pt !important; color: #333 !important; }
   .edu-years { font-size: 8pt !important; color: #666 !important; }
 
   /* Certs */
   .cert-list { gap: 6pt !important; }
   .cert-chip {
     padding: 6pt 10pt !important;
-    background: #f7f7f7 !important;
-    border: 0.5pt solid #ddd !important;
-    border-radius: 4pt !important;
+    background: none !important;
+    border: 0.5pt solid #999 !important;
+    border-radius: 0 !important;
     page-break-inside: avoid;
   }
   .cert-badge { display: none !important; }
@@ -184,13 +186,13 @@
   /* Award */
   .award-card {
     padding: 10pt 14pt !important;
-    background: #f0fafa !important;
-    border: 0.5pt solid #0d9488 !important;
-    border-radius: 4pt !important;
+    background: none !important;
+    border: 0.5pt solid #999 !important;
+    border-radius: 0 !important;
     gap: 10pt !important;
   }
   .award-card::before { display: none !important; }
-  .award-date { font-size: 8pt !important; color: #0d9488 !important; }
+  .award-date { font-size: 8pt !important; color: #333 !important; }
   .award-title { font-size: 10pt !important; color: #111 !important; }
   .award-body { font-size: 8.5pt !important; color: #444 !important; }
 
@@ -226,7 +228,7 @@
   <canvas id="hero-canvas"></canvas>
   <div class="hero-left">
     <div class="hero-eyebrow">Professional Portfolio</div>
-    <h1 class="hero-name">Adrian<br><em>Adam</em> C.<br>Pasahol</h1>
+    <h1 class="hero-name">Adrian <br><em> Adam</em> C. <br> Pasahol</h1>
     <p class="hero-title">Data Quality · AI Training · Financial Operations</p>
     <p class="hero-desc">
       Detail-oriented professional with 7+ years spanning data processing, internet safety evaluation, and financial bookkeeping. I bridge precision and analytical thinking to deliver quality across every domain I work in.
