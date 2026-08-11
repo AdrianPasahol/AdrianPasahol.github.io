@@ -46,43 +46,27 @@
     border: none !important;
   }
   .hero-left {
-    display: block !important;
     border: none !important;
     padding: 0 0 12pt !important;
-    border-bottom: 1pt solid #111 !important;
+    border-bottom: 1.5pt solid #5EEAD4 !important;
     margin-bottom: 14pt !important;
   }
   .hero-left::before { display: none !important; }
-  .hero-left::after { content: '' !important; display: table !important; clear: both !important; }
 
   .hero-eyebrow { display: none !important; }
 
-  .hero-identity {
-    display: block !important;
-    margin-bottom: 0 !important;
-  }
-  .hero-photo {
-    float: right !important;
-    width: 92px !important;
-    height: 92px !important;
-    border: 1pt solid #111 !important;
-    margin: 0 0 6pt 14pt !important;
-  }
-
   .hero-name {
-    font-size: 22pt !important;
+    font-size: 26pt !important;
     color: #111 !important;
-    margin: 0 0 2pt !important;
-    line-height: 1.2 !important;
-    white-space: normal !important;
+    margin-bottom: 3pt !important;
+    line-height: 1.1 !important;
   }
-  .hero-name br { display: none !important; }
-  .hero-name em { color: #111 !important; font-style: normal !important; }
+  .hero-name em { color: #0d9488 !important; }
 
   .hero-title {
     font-size: 10pt !important;
     color: #444 !important;
-    margin: 0 0 4pt !important;
+    margin-bottom: 6pt !important;
   }
 
   .hero-desc {
@@ -123,7 +107,13 @@
     margin-bottom: 8pt !important;
     gap: 8pt !important;
   }
-  .section-tag { display: none !important; }
+  .section-tag {
+    font-size: 7pt !important;
+    color: #0d9488 !important;
+    background: none !important;
+    border: 1pt solid #0d9488 !important;
+    padding: 1pt 5pt !important;
+  }
   .section-title {
     font-size: 13pt !important;
     color: #111 !important;
@@ -141,26 +131,45 @@
   .timeline-meta { text-align: right !important; }
   .timeline-date { font-size: 8pt !important; color: #555 !important; }
   .timeline-role { font-size: 10pt !important; color: #111 !important; }
-  .timeline-company { font-size: 9pt !important; color: #333 !important; margin-bottom: 4pt !important; }
+  .timeline-company { font-size: 9pt !important; color: #0d9488 !important; margin-bottom: 4pt !important; }
   .timeline-bullets li { font-size: 8.5pt !important; color: #333 !important; line-height: 1.5 !important; padding-left: 10pt !important; }
   .timeline-bullets li::before { color: #888 !important; }
 
   /* Skills */
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10pt 24pt !important;
+  .skills-groups {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6pt !important;
   }
-  .skill-card {
-    padding: 0 0 8pt 0 !important;
-    background: none !important;
-    border: none !important;
-    border-bottom: 0.5pt solid #ccc !important;
-    border-radius: 0 !important;
+  .skill-group {
+    padding: 8pt !important;
+    background: #f7f7f7 !important;
+    border: 0.5pt solid #ddd !important;
+    border-radius: 4pt !important;
     page-break-inside: avoid;
   }
-  .skill-icon { display: none !important; }
-  .skill-name { font-size: 8.5pt !important; font-weight: 600 !important; color: #111 !important; margin-bottom: 2pt !important; }
-  .skill-desc { font-size: 7.5pt !important; color: #555 !important; line-height: 1.4 !important; }
+  .skill-group-head { margin-bottom: 5pt !important; }
+  .skill-group-kicker { font-size: 6.5pt !important; color: #0d9488 !important; }
+  .skill-group h3 { font-size: 9pt !important; color: #111 !important; }
+  .skill-pills { gap: 3pt !important; }
+  .skill-pills span {
+    font-size: 6.8pt !important;
+    color: #444 !important;
+    border: 0.5pt solid #ddd !important;
+    background: #fff !important;
+    padding: 2pt 4pt !important;
+  }
+
+  .project-type { font-size: 6.5pt !important; color:#0d9488 !important; }
+  .project-details {
+    border-top: 0.5pt solid #ddd !important;
+    border-bottom: 0.5pt solid #ddd !important;
+    padding: 5pt 0 !important;
+    gap: 3pt !important;
+    font-size: 7.5pt !important;
+    color: #444 !important;
+  }
+  .project-details strong { color:#111 !important; }
 
   /* Education */
   .edu-grid {
@@ -168,71 +177,42 @@
     gap: 8pt !important;
   }
   .edu-card {
-    padding: 0 !important;
-    background: none !important;
-    border: none !important;
-    border-radius: 0 !important;
+    padding: 8pt 10pt !important;
+    background: #f7f7f7 !important;
+    border: 0.5pt solid #ddd !important;
+    border-left: 2pt solid #0d9488 !important;
+    border-radius: 0 4pt 4pt 0 !important;
     page-break-inside: avoid;
   }
-  .edu-degree { font-size: 9pt !important; font-weight: 600 !important; color: #111 !important; }
-  .edu-school { font-size: 8.5pt !important; color: #333 !important; }
+  .edu-degree { font-size: 9pt !important; color: #111 !important; }
+  .edu-school { font-size: 8.5pt !important; color: #0d9488 !important; }
   .edu-years { font-size: 8pt !important; color: #666 !important; }
 
   /* Certs */
-  .cert-list {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8pt !important;
-  }
+  .cert-list { gap: 6pt !important; }
   .cert-chip {
-    padding: 0 !important;
-    background: none !important;
-    border: none !important;
-    border-radius: 0 !important;
+    padding: 6pt 10pt !important;
+    background: #f7f7f7 !important;
+    border: 0.5pt solid #ddd !important;
+    border-radius: 4pt !important;
     page-break-inside: avoid;
   }
   .cert-badge { display: none !important; }
-  .cert-name { font-size: 9pt !important; font-weight: 600 !important; color: #111 !important; }
+  .cert-name { font-size: 9pt !important; color: #111 !important; }
   .cert-body { font-size: 8pt !important; color: #555 !important; }
 
   /* Award */
   .award-card {
-    display: block !important;
-    padding: 8pt 0 !important;
-    background: none !important;
-    border: none !important;
-    border-top: 0.5pt solid #999 !important;
-    border-radius: 0 !important;
+    padding: 10pt 14pt !important;
+    background: #f0fafa !important;
+    border: 0.5pt solid #0d9488 !important;
+    border-radius: 4pt !important;
+    gap: 10pt !important;
   }
   .award-card::before { display: none !important; }
-  .award-icon-wrap { display: none !important; }
-  .award-card > div:last-child {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: baseline !important;
-    column-gap: 6pt !important;
-  }
-  .award-title {
-    order: 1 !important;
-    font-size: 10pt !important;
-    font-weight: 600 !important;
-    color: #111 !important;
-  }
-  .award-title br { display: none !important; content: " " !important; }
-  .award-date {
-    order: 2 !important;
-    font-size: 8pt !important;
-    color: #555 !important;
-    margin-bottom: 0 !important;
-  }
-  .award-date::before { content: "\2014  " !important; color: #555 !important; }
-  .award-body {
-    order: 3 !important;
-    flex-basis: 100% !important;
-    font-size: 8.5pt !important;
-    color: #444 !important;
-    margin-top: 2pt !important;
-  }
+  .award-date { font-size: 8pt !important; color: #0d9488 !important; }
+  .award-title { font-size: 10pt !important; color: #111 !important; }
+  .award-body { font-size: 8.5pt !important; color: #444 !important; }
 
   /* Reveal animations: make everything visible */
   .reveal { opacity: 1 !important; transform: none !important; }
@@ -266,14 +246,14 @@
   <canvas id="hero-canvas"></canvas>
   <div class="hero-left">
     <div class="hero-eyebrow">Professional Portfolio</div>
-    <div class="hero-identity">
-      <img src="photo.jpg" alt="Adrian Adam C. Pasahol" class="hero-photo">
-      <h1 class="hero-name">Adrian <br><em> Adam</em> C. <br> Pasahol</h1>
-    </div>
-    <p class="hero-title">Data Quality · AI Training · Financial Operations</p>
+    <h1 class="hero-name">Adrian<br><em>Adam</em> C.<br>Pasahol</h1>
+    <p class="hero-title">Data Quality · Operations · Accounting Technology</p>
     <p class="hero-desc">
-      Detail-oriented professional with 7+ years spanning data processing, internet safety evaluation, and financial bookkeeping. I bridge precision and analytical thinking to deliver quality across every domain I work in.
+      Detail-oriented professional with nearly 7 years of experience across data processing, internet safety evaluation, and financial bookkeeping. I bring together quality assurance, structured data handling, financial operations, and technology to deliver accurate, dependable work.
     </p>
+    <div class="hero-focus">
+      <span>DATA QUALITY</span><span>FINANCIAL OPERATIONS</span><span>WEB PROJECTS</span>
+    </div>
     <div class="hero-ctas">
       <a href="#experience" class="btn-primary">View Experience</a>
       <a href="#contact" class="btn-outline">Get in Touch</a>
@@ -288,8 +268,8 @@
   <div class="hero-right">
     <div class="stat-row">
       <div class="stat-card">
-        <div class="stat-number">7+</div>
-        <div class="stat-label">Years Experience</div>
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Years Professional Experience</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">3</div>
@@ -382,64 +362,21 @@
 <section id="skills">
   <div class="section-header reveal">
     <span class="section-tag">02 · Expertise</span>
-    <h2 class="section-title">Core Skills</h2>
+    <h2 class="section-title">What I Bring</h2>
     <div class="section-rule"></div>
   </div>
-  <div class="skills-grid">
-    <div class="skill-card reveal">
-      <span class="skill-icon">🔍</span>
-      <div class="skill-name">Data Quality Assurance</div>
-      <div class="skill-desc">Identifying errors, auditing outputs, and ensuring all data meets internal standards before delivery.</div>
+  <div class="skills-groups">
+    <div class="skill-group reveal">
+      <div class="skill-group-head"><span class="skill-group-kicker">01</span><h3>Data & Quality</h3></div>
+      <div class="skill-pills"><span>Data Quality Assurance</span><span>Data Processing</span><span>Data Annotation</span><span>Data Validation</span><span>AI Training</span><span>Internet Safety Evaluation</span><span>Quality Control</span><span>Research & Analysis</span><span>Documentation</span></div>
     </div>
-    <div class="skill-card reveal">
-      <span class="skill-icon">🤖</span>
-      <div class="skill-name">AI Dataset Annotation</div>
-      <div class="skill-desc">Preparing, labeling, and validating training datasets to improve machine learning model performance.</div>
+    <div class="skill-group reveal">
+      <div class="skill-group-head"><span class="skill-group-kicker">02</span><h3>Accounting & Finance</h3></div>
+      <div class="skill-pills"><span>Bookkeeping</span><span>Payroll Processing</span><span>Invoice Processing</span><span>Expense & Income Tracking</span><span>Bank Statements</span><span>Accounting Entries</span><span>Financial Operations</span><span>Financial Documentation</span></div>
     </div>
-    <div class="skill-card reveal">
-      <span class="skill-icon">🛡️</span>
-      <div class="skill-name">Internet Safety Evaluation</div>
-      <div class="skill-desc">Evaluating online content for safety, quality, and misinformation — providing structured platform feedback.</div>
-    </div>
-    <div class="skill-card reveal">
-      <span class="skill-icon">📊</span>
-      <div class="skill-name">Financial Bookkeeping</div>
-      <div class="skill-desc">Managing payroll, invoices, bank statements, and accounting entries with full compliance and accuracy.</div>
-    </div>
-    <div class="skill-card reveal">
-      <span class="skill-icon">📋</span>
-      <div class="skill-name">Documentation & Reporting</div>
-      <div class="skill-desc">Maintaining meticulous records and filing financial documents in accordance with corporate protocols.</div>
-    </div>
-    <div class="skill-card reveal">
-      <span class="skill-icon">🔎</span>
-      <div class="skill-name">Research & Analysis</div>
-      <div class="skill-desc">Investigating content trends, safety issues, and risk factors to inform operational improvements.</div>
-    </div>
-  </div>
-
-  <div class="subsection">
-    <div class="section-header reveal">
-      <span class="section-tag">Technical</span>
-      <h2 class="section-title section-title--sub">Technical Skills</h2>
-      <div class="section-rule"></div>
-    </div>
-    <div class="skills-grid reveal">
-      <div class="skill-card">
-        <span class="skill-icon">🖥️</span>
-        <div class="skill-name">Hardware & Software Troubleshooting</div>
-        <div class="skill-desc">Diagnosing and resolving computer hardware and software issues, including system setup and configuration.</div>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">🎨</span>
-        <div class="skill-name">Adobe Photoshop & Premiere Pro</div>
-        <div class="skill-desc">Image editing, basic photo compositing, and video editing for content production and review workflows.</div>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">🌐</span>
-        <div class="skill-name">Web Design — AI, GitHub & Cloudflare</div>
-        <div class="skill-desc">Building and publishing websites using AI tools, GitHub, and Cloudflare Pages for hosting and deployment.</div>
-      </div>
+    <div class="skill-group reveal">
+      <div class="skill-group-head"><span class="skill-group-kicker">03</span><h3>Technology & Digital</h3></div>
+      <div class="skill-pills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub</span><span>Cloudflare Pages</span><span>AI-Assisted Development</span><span>Hardware & Software Troubleshooting</span><span>Photoshop</span><span>Premiere Pro</span></div>
     </div>
   </div>
 </section>
@@ -448,7 +385,7 @@
 <section id="projects">
   <div class="section-header reveal">
     <span class="section-tag">03 · Projects</span>
-    <h2 class="section-title">Web Projects</h2>
+    <h2 class="section-title">Selected Web Projects</h2>
     <div class="section-rule"></div>
   </div>
   <div class="projects-grid">
@@ -459,12 +396,17 @@
         <div class="project-name">Nehemiah Church of the Living God</div>
         <a href="https://nclg.pages.dev" target="_blank" rel="noopener" class="project-url">nclg.pages.dev</a>
       </div>
+      <div class="project-type">REAL-WORLD ORGANIZATION WEBSITE</div>
       <p class="project-desc">
-        A full church website for NCLG — a Baptist community in Kawit, Cavite, Philippines. Features the church's history, ministries, leadership directory, upcoming events, an embedded live worship stream, a verse-of-the-day widget, and a Google Maps integration for first-time visitors.
+        A complete church website for NCLG in Kawit, Cavite, built to make the organization's history, ministries, leadership, events, worship resources, and location easy for visitors to explore.
       </p>
+      <div class="project-details">
+        <div><strong>Built:</strong> Information architecture, responsive pages, content sections, embedded services, verse-of-the-day widget, and Google Maps integration.</div>
+        <div><strong>Focus:</strong> Clear navigation, accessible information, and a practical experience for first-time visitors.</div>
+      </div>
       <div class="project-tags">
-        <span class="project-tag">Web Design</span>
         <span class="project-tag">HTML/CSS</span>
+        <span class="project-tag">Responsive Design</span>
         <span class="project-tag">Cloudflare Pages</span>
         <span class="project-tag">AI-Assisted</span>
       </div>
@@ -478,18 +420,23 @@
       <div class="project-icon">🎵</div>
       <div>
         <div class="project-name">Chord Nexus</div>
-        <a href="https://chordex.pages.dev" target="_blank" rel="noopener" class="project-url">chordex.pages.dev</a>
+        <a href="https://chordnexus.pages.dev" target="_blank" rel="noopener" class="project-url">chordnexus.pages.dev</a>
       </div>
+      <div class="project-type">INTERACTIVE WEB APPLICATION</div>
       <p class="project-desc">
-        A free interactive music toolkit covering chords, scales, and the Circle of Fifths, with dedicated explorers for guitar, bass, and piano — including the CAGED system, a capo explorer, and a chord progression builder with built-in metronome.
+        A free interactive music toolkit designed to help musicians explore chords, scales, keys, and practical instrument concepts through visual tools and interactive utilities.
       </p>
+      <div class="project-details">
+        <div><strong>Built:</strong> Chord and scale tools, Circle of Fifths, guitar/bass/piano explorers, CAGED system, capo explorer, chord progression builder, and metronome.</div>
+        <div><strong>Focus:</strong> Turning music theory into interactive, visual tools that are easy to explore in a browser.</div>
+      </div>
       <div class="project-tags">
-        <span class="project-tag">Web Design</span>
-        <span class="project-tag">Interactive</span>
+        <span class="project-tag">Interactive UI</span>
+        <span class="project-tag">HTML/CSS/JS</span>
         <span class="project-tag">Cloudflare Pages</span>
         <span class="project-tag">AI-Assisted</span>
       </div>
-      <a href="https://chordex.pages.dev" target="_blank" rel="noopener" class="project-link">
+      <a href="https://chordnexus.pages.dev" target="_blank" rel="noopener" class="project-link">
         Visit Site
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
@@ -547,7 +494,7 @@
       <div class="award-icon-wrap">🏅</div>
       <div>
         <div class="award-date">MARCH 2009</div>
-        <div class="award-title">Award of Outstanding Achievement <br> in Culture and Arts</div>
+        <div class="award-title">Award of Outstanding Achievement<br>in Culture and Arts</div>
         <div class="award-body">Office of the President of the Philippines</div>
       </div>
     </div>
@@ -559,7 +506,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-lead">Let's work together.</div>
-      <div class="footer-sub">Open to new opportunities in data, operations, and financial analysis.</div>
+      <div class="footer-sub">Open to opportunities in data quality, operations, accounting support, and technology-enabled roles.</div>
     </div>
     <div class="footer-links">
       <a href="mailto:adrianadam.pasahol@gmail.com" class="footer-link">
