@@ -117,20 +117,27 @@
     margin-bottom: 8pt !important;
     gap: 8pt !important;
   }
-  .section-tag {
-    font-size: 7pt !important;
-    color: #000 !important;
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-    letter-spacing: 0.5pt !important;
-  }
+  .section-tag { display: none !important; }
   .section-title {
     font-size: 13pt !important;
     color: #000 !important;
     font-weight: 600 !important;
     border-bottom: 0.75pt solid #000 !important;
     padding-bottom: 4pt !important;
+  }
+  /* Print-only title override: swap on-screen wording for a shorter print
+     wording via data-print-title, without touching the live site text. */
+  .section-title[data-print-title] {
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+  .section-title[data-print-title]::before {
+    content: attr(data-print-title);
+    display: inline-block;
+    font-size: 13pt !important;
+    line-height: normal !important;
+    color: #000 !important;
+    font-weight: 600 !important;
   }
 
   /* Timeline */
@@ -404,7 +411,7 @@
 <section id="skills">
   <div class="section-header reveal">
     <span class="section-tag">02 · Expertise</span>
-    <h2 class="section-title">What I Bring</h2>
+    <h2 class="section-title" data-print-title="Expertise">What I Bring</h2>
     <div class="section-rule"></div>
   </div>
   <div class="skills-groups">
@@ -510,7 +517,7 @@
   <div class="subsection">
     <div class="section-header reveal">
       <span class="section-tag">05 · Credentials</span>
-      <h2 class="section-title">Certifications</h2>
+      <h2 class="section-title" data-print-title="Certificate">Certifications</h2>
       <div class="section-rule"></div>
     </div>
     <div class="cert-list reveal">
