@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style media="print">
-  /* ── PRINT / PDF STYLES ── */
+  /* ── PRINT / PDF STYLES — PLAIN VERSION ── */
   @page {
     size: A4;
     margin: 18mm 16mm 16mm 16mm;
@@ -18,7 +18,7 @@
 
   body {
     background: #fff !important;
-    color: #111 !important;
+    color: #000 !important;
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 10pt;
     line-height: 1.5;
@@ -48,7 +48,7 @@
   .hero-left {
     border: none !important;
     padding: 0 0 12pt !important;
-    border-bottom: 1.5pt solid #5EEAD4 !important;
+    border-bottom: 1pt solid #000 !important;
     margin-bottom: 14pt !important;
   }
   .hero-left::before { display: none !important; }
@@ -56,22 +56,23 @@
   .hero-eyebrow { display: none !important; }
 
   .hero-name {
-    font-size: 26pt !important;
-    color: #111 !important;
+    font-size: 24pt !important;
+    color: #000 !important;
     margin-bottom: 3pt !important;
     line-height: 1.1 !important;
+    font-weight: 600 !important;
   }
-  .hero-name em { color: #0d9488 !important; }
+  .hero-name em { color: #000 !important; font-style: normal !important; }
 
   .hero-title {
     font-size: 10pt !important;
-    color: #444 !important;
+    color: #000 !important;
     margin-bottom: 6pt !important;
   }
 
   .hero-desc {
     font-size: 9pt !important;
-    color: #333 !important;
+    color: #000 !important;
     max-width: 100% !important;
     margin-bottom: 0 !important;
     line-height: 1.55 !important;
@@ -90,7 +91,7 @@
   }
   .contact-item {
     font-size: 8.5pt !important;
-    color: #333 !important;
+    color: #000 !important;
     gap: 5pt !important;
   }
   .contact-icon { display: none !important; }
@@ -109,14 +110,18 @@
   }
   .section-tag {
     font-size: 7pt !important;
-    color: #0d9488 !important;
+    color: #000 !important;
     background: none !important;
-    border: 1pt solid #0d9488 !important;
-    padding: 1pt 5pt !important;
+    border: none !important;
+    padding: 0 !important;
+    letter-spacing: 0.5pt !important;
   }
   .section-title {
     font-size: 13pt !important;
-    color: #111 !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+    border-bottom: 0.75pt solid #000 !important;
+    padding-bottom: 4pt !important;
   }
 
   /* Timeline */
@@ -129,11 +134,11 @@
   .timeline-dot { display: none !important; }
   .timeline-item::before { display: none !important; }
   .timeline-meta { text-align: right !important; }
-  .timeline-date { font-size: 8pt !important; color: #555 !important; }
-  .timeline-role { font-size: 10pt !important; color: #111 !important; }
-  .timeline-company { font-size: 9pt !important; color: #0d9488 !important; margin-bottom: 4pt !important; }
-  .timeline-bullets li { font-size: 8.5pt !important; color: #333 !important; line-height: 1.5 !important; padding-left: 10pt !important; }
-  .timeline-bullets li::before { color: #888 !important; }
+  .timeline-date { font-size: 8pt !important; color: #333 !important; }
+  .timeline-role { font-size: 10pt !important; color: #000 !important; font-weight: 600 !important; }
+  .timeline-company { font-size: 9pt !important; color: #000 !important; margin-bottom: 4pt !important; }
+  .timeline-bullets li { font-size: 8.5pt !important; color: #000 !important; line-height: 1.5 !important; padding-left: 10pt !important; }
+  .timeline-bullets li::before { color: #000 !important; }
 
   /* Skills */
   .skills-groups {
@@ -142,34 +147,35 @@
     gap: 6pt !important;
   }
   .skill-group {
-    padding: 8pt !important;
-    background: #f7f7f7 !important;
-    border: 0.5pt solid #ddd !important;
-    border-radius: 4pt !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
     page-break-inside: avoid;
   }
   .skill-group-head { margin-bottom: 5pt !important; }
-  .skill-group-kicker { font-size: 6.5pt !important; color: #0d9488 !important; }
-  .skill-group h3 { font-size: 9pt !important; color: #111 !important; }
+  .skill-group-kicker { font-size: 6.5pt !important; color: #000 !important; }
+  .skill-group h3 { font-size: 9pt !important; color: #000 !important; font-weight: 600 !important; }
   .skill-pills { gap: 3pt !important; }
   .skill-pills span {
     font-size: 6.8pt !important;
-    color: #444 !important;
-    border: 0.5pt solid #ddd !important;
+    color: #000 !important;
+    border: 0.5pt solid #999 !important;
     background: #fff !important;
     padding: 2pt 4pt !important;
+    border-radius: 0 !important;
   }
 
-  .project-type { font-size: 6.5pt !important; color:#0d9488 !important; }
+  .project-type { font-size: 6.5pt !important; color:#000 !important; }
   .project-details {
-    border-top: 0.5pt solid #ddd !important;
-    border-bottom: 0.5pt solid #ddd !important;
+    border-top: 0.5pt solid #000 !important;
+    border-bottom: 0.5pt solid #000 !important;
     padding: 5pt 0 !important;
     gap: 3pt !important;
     font-size: 7.5pt !important;
-    color: #444 !important;
+    color: #000 !important;
   }
-  .project-details strong { color:#111 !important; }
+  .project-details strong { color:#000 !important; }
 
   /* Education */
   .edu-grid {
@@ -177,42 +183,43 @@
     gap: 8pt !important;
   }
   .edu-card {
-    padding: 8pt 10pt !important;
-    background: #f7f7f7 !important;
-    border: 0.5pt solid #ddd !important;
-    border-left: 2pt solid #0d9488 !important;
-    border-radius: 0 4pt 4pt 0 !important;
+    padding: 0 0 0 10pt !important;
+    background: none !important;
+    border: none !important;
+    border-left: 1pt solid #000 !important;
+    border-radius: 0 !important;
     page-break-inside: avoid;
   }
-  .edu-degree { font-size: 9pt !important; color: #111 !important; }
-  .edu-school { font-size: 8.5pt !important; color: #0d9488 !important; }
-  .edu-years { font-size: 8pt !important; color: #666 !important; }
+  .edu-degree { font-size: 9pt !important; color: #000 !important; font-weight: 600 !important; }
+  .edu-school { font-size: 8.5pt !important; color: #000 !important; }
+  .edu-years { font-size: 8pt !important; color: #333 !important; }
 
   /* Certs */
   .cert-list { gap: 6pt !important; }
   .cert-chip {
-    padding: 6pt 10pt !important;
-    background: #f7f7f7 !important;
-    border: 0.5pt solid #ddd !important;
-    border-radius: 4pt !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
     page-break-inside: avoid;
   }
   .cert-badge { display: none !important; }
-  .cert-name { font-size: 9pt !important; color: #111 !important; }
-  .cert-body { font-size: 8pt !important; color: #555 !important; }
+  .cert-name { font-size: 9pt !important; color: #000 !important; font-weight: 600 !important; }
+  .cert-body { font-size: 8pt !important; color: #333 !important; }
 
   /* Award */
   .award-card {
-    padding: 10pt 14pt !important;
-    background: #f0fafa !important;
-    border: 0.5pt solid #0d9488 !important;
-    border-radius: 4pt !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
     gap: 10pt !important;
   }
   .award-card::before { display: none !important; }
-  .award-date { font-size: 8pt !important; color: #0d9488 !important; }
-  .award-title { font-size: 10pt !important; color: #111 !important; }
-  .award-body { font-size: 8.5pt !important; color: #444 !important; }
+  .award-icon-wrap { display: none !important; }
+  .award-date { font-size: 8pt !important; color: #000 !important; }
+  .award-title { font-size: 10pt !important; color: #000 !important; font-weight: 600 !important; }
+  .award-body { font-size: 8.5pt !important; color: #000 !important; }
 
   /* Reveal animations: make everything visible */
   .reveal { opacity: 1 !important; transform: none !important; }
