@@ -219,18 +219,25 @@
   .edu-school { font-size: 8.5pt !important; color: #000 !important; }
   .edu-years { font-size: 8pt !important; color: #333 !important; }
 
-  /* Certs */
-  .cert-list { gap: 6pt !important; }
+  /* Certs — match Education card styling */
+  .cert-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8pt !important;
+    flex-wrap: unset !important;
+    max-width: 100% !important;
+  }
   .cert-chip {
-    padding: 0 !important;
+    padding: 0 0 0 10pt !important;
     background: none !important;
     border: none !important;
+    border-left: 1pt solid #000 !important;
     border-radius: 0 !important;
     page-break-inside: avoid;
   }
   .cert-badge { display: none !important; }
   .cert-name { font-size: 9pt !important; color: #000 !important; font-weight: 600 !important; }
-  .cert-body { font-size: 8pt !important; color: #333 !important; }
+  .cert-body { font-size: 8.5pt !important; color: #000 !important; }
 
   /* Award */
   .award-card {
