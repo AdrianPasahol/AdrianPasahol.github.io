@@ -414,17 +414,18 @@ section:nth-child(even) { background: var(--bg-card); border-top: 1px solid var(
   border-color: rgba(94,234,212,.35);
   box-shadow: 0 14px 36px rgba(0,0,0,.18);
 }
-.skill-group-head { display:flex; align-items:baseline; gap:12px; margin-bottom:18px; }
+.skill-group-head { display:flex; align-items:baseline; gap:12px; margin-bottom:10px; }
 .skill-group-kicker { font-family:var(--mono); color:var(--accent); font-size:11px; }
 .skill-group h3 { font-family:var(--serif); font-size:clamp(21px,1.5vw,28px); font-weight:400; }
-.skill-pills { display:flex; flex-wrap:wrap; gap:8px; }
+.skill-group-summary { font-family:var(--sans); font-size:14px; line-height:1.55; color:var(--ink); margin-bottom:16px; }
+.skill-pills { display:flex; flex-wrap:wrap; gap:6px; }
 .skill-pills span {
   border:1px solid var(--rule);
   background:rgba(255,255,255,.02);
-  color:var(--ink-soft);
+  color:var(--ink-muted);
   border-radius:999px;
-  padding:7px 10px;
-  font-size:12px;
+  padding:5px 9px;
+  font-size:11px;
   line-height:1.2;
 }
 
