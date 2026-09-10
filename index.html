@@ -143,21 +143,16 @@
     font-weight: 600 !important;
   }
 
-  /* Timeline */
-  .timeline-item {
-    grid-template-columns: 100px 1fr !important;
-    gap: 12pt !important;
-    padding-bottom: 10pt !important;
-    page-break-inside: avoid;
-  }
-  .timeline-dot { display: none !important; }
-  .timeline-item::before { display: none !important; }
-  .timeline-meta { text-align: right !important; }
-  .timeline-date { font-size: 8pt !important; color: #333 !important; }
-  .timeline-role { font-size: 10pt !important; color: #000 !important; font-weight: 600 !important; }
-  .timeline-company { font-size: 9pt !important; color: #000 !important; margin-bottom: 4pt !important; }
-  .timeline-bullets li { font-size: 8.5pt !important; color: #000 !important; line-height: 1.5 !important; padding-left: 10pt !important; }
-  .timeline-bullets li::before { color: #000 !important; }
+  /* Experience (was a two-column timeline, now horizontal-scroll cards on
+     screen — @media print above already forces .exp-card back to a plain
+     stacked block, this just sets the text sizing/color to match the rest
+     of the print stylesheet) */
+  .exp-card { page-break-inside: avoid; margin-bottom: 10pt !important; }
+  .exp-card .timeline-date { font-size: 8pt !important; color: #333 !important; }
+  .exp-card .timeline-role { font-size: 10pt !important; color: #000 !important; font-weight: 600 !important; margin-top: 2pt !important; }
+  .exp-card .timeline-company { font-size: 9pt !important; color: #000 !important; margin-bottom: 4pt !important; }
+  .exp-card .timeline-bullets li { font-size: 8.5pt !important; color: #000 !important; line-height: 1.5 !important; padding-left: 10pt !important; }
+  .exp-card .timeline-bullets li::before { color: #000 !important; }
 
   /* Skills — stacked, plain flowing list (no chips/columns; avoids awkward
      wrapping of long phrases inside narrow print columns) */
@@ -369,52 +364,42 @@
     <h2 class="section-title">Professional Experience</h2>
     <div class="section-rule"></div>
   </div>
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <div class="timeline-meta">
-        <div class="timeline-date">Sep 2025<br>— Feb 2026</div>
+  <div class="hscroll-outer" id="experience-hscroll">
+    <div class="hscroll-pin">
+      <div class="hscroll-track">
+        <div class="exp-card">
+          <div class="timeline-date">Sep 2025 — Feb 2026</div>
+          <div class="timeline-role">Data Processing Associate</div>
+          <div class="timeline-company">Appen</div>
+          <ul class="timeline-bullets">
+            <li>Conducted thorough quality assurance reviews to identify errors and inconsistencies, ensuring all outputs met internal standards prior to submission.</li>
+            <li>Audited, classified, and accurately labeled large volumes of data to support operational and analytical processes.</li>
+            <li>Contributed to AI training by preparing, annotating, and validating datasets to improve model performance and reliability.</li>
+          </ul>
+        </div>
+        <div class="exp-card">
+          <div class="timeline-date">May 2022 — May 2025</div>
+          <div class="timeline-role">Internet Safety Evaluator</div>
+          <div class="timeline-company">TELUS International</div>
+          <ul class="timeline-bullets">
+            <li>Audited, analyzed, and evaluated online video search results to improve content quality and platform safety standards.</li>
+            <li>Provided clear, consistent, and detailed feedback for quality assurance workflows.</li>
+            <li>Conducted research on emerging internet safety issues, misinformation trends, and user content patterns to support platform improvement and risk assessment.</li>
+          </ul>
+        </div>
+        <div class="exp-card">
+          <div class="timeline-date">Apr 2019 — Dec 2021</div>
+          <div class="timeline-role">Bookkeeper</div>
+          <div class="timeline-company">BCOB Multipurpose Cooperative</div>
+          <ul class="timeline-bullets">
+            <li>Maintained and processed invoices, deposits, and money logs with full accuracy.</li>
+            <li>Completed employee payroll and maintained detailed records of procedures.</li>
+            <li>Tracked expenses and income while organizing and maintaining bank statements for checking accounts.</li>
+            <li>Reviewed and filed financial documents, coded accounting entries, and posted daily receipts and payments in accordance with all corporate protocols.</li>
+          </ul>
+        </div>
       </div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-body">
-        <div class="timeline-role">Data Processing Associate</div>
-        <div class="timeline-company">Appen</div>
-        <ul class="timeline-bullets">
-          <li>Conducted thorough quality assurance reviews to identify errors and inconsistencies, ensuring all outputs met internal standards prior to submission.</li>
-          <li>Audited, classified, and accurately labeled large volumes of data to support operational and analytical processes.</li>
-          <li>Contributed to AI training by preparing, annotating, and validating datasets to improve model performance and reliability.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-meta">
-        <div class="timeline-date">May 2022<br>— May 2025</div>
-      </div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-body">
-        <div class="timeline-role">Internet Safety Evaluator</div>
-        <div class="timeline-company">TELUS International</div>
-        <ul class="timeline-bullets">
-          <li>Audited, analyzed, and evaluated online video search results to improve content quality and platform safety standards.</li>
-          <li>Provided clear, consistent, and detailed feedback for quality assurance workflows.</li>
-          <li>Conducted research on emerging internet safety issues, misinformation trends, and user content patterns to support platform improvement and risk assessment.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-meta">
-        <div class="timeline-date">Apr 2019<br>— Dec 2021</div>
-      </div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-body">
-        <div class="timeline-role">Bookkeeper</div>
-        <div class="timeline-company">BCOB Multipurpose Cooperative</div>
-        <ul class="timeline-bullets">
-          <li>Maintained and processed invoices, deposits, and money logs with full accuracy.</li>
-          <li>Completed employee payroll and maintained detailed records of procedures.</li>
-          <li>Tracked expenses and income while organizing and maintaining bank statements for checking accounts.</li>
-          <li>Reviewed and filed financial documents, coded accounting entries, and posted daily receipts and payments in accordance with all corporate protocols.</li>
-        </ul>
-      </div>
+      <div class="hscroll-progress"><div class="hscroll-progress-bar"></div></div>
     </div>
   </div>
 </section>
@@ -658,6 +643,61 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── HORIZONTAL SCROLL SECTIONS (Experience + Projects) ──
+  // Desktop only: as the person scrolls down through a tall spacer element,
+  // the section "pins" in place (via position: sticky) while its row of
+  // cards translates left-to-right in step with scroll position. Below
+  // 900px this does nothing — CSS instead turns the row into a normal,
+  // native swipeable horizontal scroller, since scroll-jacking on a
+  // touchscreen tends to feel broken rather than clever.
+  function initHScroll(outerId) {
+    const outer = document.getElementById(outerId);
+    if (!outer) return;
+    const pin = outer.querySelector('.hscroll-pin');
+    const track = outer.querySelector('.hscroll-track');
+    const progressBar = outer.querySelector('.hscroll-progress-bar');
+    if (!pin || !track) return;
+
+    const desktopQuery = window.matchMedia('(min-width: 900px)');
+    let maxTranslate = 0;
+
+    function measure() {
+      if (!desktopQuery.matches) {
+        outer.style.height = '';
+        track.style.transform = '';
+        return;
+      }
+      maxTranslate = Math.max(0, track.scrollWidth - pin.clientWidth);
+      // Extra scroll room beyond one viewport height, equal to the distance
+      // the track needs to travel — a 1:1 mapping of vertical scroll input
+      // to horizontal movement.
+      outer.style.height = (window.innerHeight + maxTranslate) + 'px';
+      update();
+    }
+
+    function update() {
+      if (!desktopQuery.matches || maxTranslate <= 0) return;
+      const rect = outer.getBoundingClientRect();
+      const scrollable = outer.offsetHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      let progress = -rect.top / scrollable;
+      progress = Math.max(0, Math.min(1, progress));
+      track.style.transform = `translateX(-${progress * maxTranslate}px)`;
+      if (progressBar) progressBar.style.width = (progress * 100) + '%';
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    // Images loading late (once real screenshots are added) can change the
+    // track's width after first measurement — recheck shortly after load.
+    setTimeout(measure, 400);
+    if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', measure);
+    measure();
+  }
+
+  initHScroll('experience-hscroll');
 
   // ── ACTIVE NAV HIGHLIGHT ──
   const sections = document.querySelectorAll('section[id], footer[id]');
